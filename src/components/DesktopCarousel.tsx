@@ -16,7 +16,7 @@ const arrowStyle = {
     height: '37px',
     width: '37px',
     position: 'absolute',
-    bottom: '-10px',
+    bottom: '0px',
     overflow:'hidden',
     right: '12px',
     transition: 'opacity 0.5s'

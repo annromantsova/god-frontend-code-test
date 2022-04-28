@@ -2,8 +2,10 @@ import React, {FC, ReactNode, useState} from 'react'
 import {GetStaticProps, InferGetStaticPropsType} from 'next'
 import carsData from '../public/api/cars.json'
 
+import Filter from '../src/components/Filter'
 import {BodyType, Car} from '../src/types'
 import SpringCarousel from "../src/components/SpringCarousel";
+import {Grid,Row, Col} from "vcc-ui";
 
 
 const Home: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({cars}) => {
@@ -15,7 +17,18 @@ const Home: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({cars}) => {
     }, [])
     return (
         <>
-            <SpringCarousel data={dataFiltered} key={`spring-${bodyTypeFilter}`} ></SpringCarousel>
+            <Grid>
+                <Row align="center">
+                    <Col size={10}>
+                        <Filter value={bodyTypeFilter} setValue={setBodyTypeFilter} />
+                    </Col>
+                </Row >
+                <Row align="center">
+                    <Col size={10}>
+                        <SpringCarousel data={dataFiltered} key={`spring-${bodyTypeFilter}`} ></SpringCarousel>
+                    </Col>
+                </Row>
+            </Grid>
         </>
     )
 }
