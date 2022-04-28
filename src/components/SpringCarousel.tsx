@@ -1,3 +1,5 @@
+import MobileCarousel from "./MobileCarousel";
+import DesktopCarousel from "./DesktopCarousel";
 import React, {FC, ReactNode, useEffect, useState} from "react";
 import {useTheme } from 'vcc-ui'
 
@@ -18,6 +20,7 @@ const SpringCarousel: FC<Props> = ({data}) => {
         return () => window.removeEventListener("resize", handleResize);
     }, [theme, isMobile]);
     return (
+        isMobile? <MobileCarousel data={data}/>:<DesktopCarousel data={data}/>
     );
 }
 export default SpringCarousel
